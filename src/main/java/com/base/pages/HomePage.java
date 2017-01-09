@@ -1,6 +1,6 @@
 package com.base.pages;
 
-import com.base.Locators.HomePageLocators;
+import com.base.locators.HomePageLocators;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.base.utils.PropertiesReader.getProperty;

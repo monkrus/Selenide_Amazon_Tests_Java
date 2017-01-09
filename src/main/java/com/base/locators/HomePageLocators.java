@@ -1,4 +1,4 @@
-package com.base.Locators;
+package com.base.locators;
 
 public class HomePageLocators {
 
