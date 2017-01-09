@@ -11,7 +11,7 @@ public class BrowserSelection {
                 break;
             case "Chrome":
                 Configuration.browser = "Chrome";
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/win/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/win/chromedriver.exe");
                 break;
             case "IE":
                 //TODO
