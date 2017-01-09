@@ -1,30 +1,24 @@
-package com.tests;
+package com.base;
 
-import com.base.pages.LoginPage;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
-import org.aspectj.lang.annotation.Before;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
+import static com.base.utils.PropertiesReader.getProperty;
+import static com.base.utils.BrowserSelection.selectBrowser;
+import static com.base.utils.PropertiesReader.readPropertiesFileWithAccountsTestData;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
-import static com.codeborne.selenide.WebDriverRunner.isChrome;
 
 public class SelenideBaseTest {
 
     @BeforeTest(alwaysRun = true)
-    void before(){
-        WebDriverRunner.isChrome();
-        Configuration.browser.equals("Chrome");
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
-        new LoginPage()
-                .openLoginPage();
+    public void before() throws Exception {
+        readPropertiesFileWithAccountsTestData();
+        selectBrowser(getProperty("BROWSER"));
+
     }
 
     @AfterTest(alwaysRun = true)
-    void after() {
+    public void after() {
         closeWebDriver();
         clearBrowserCache();
     }

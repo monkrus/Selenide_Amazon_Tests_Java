@@ -1,22 +1,31 @@
 package com.base.utils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import com.base.SelenideBaseTest;
+
+import java.io.*;
 import java.util.Properties;
 
 public class PropertiesReader {
 
-    public static String loadProperty(String name) {
-        Properties prop = new Properties();
-        try {
-            prop.load(new FileInputStream("src\\test\\resources\\testdata.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String value = "";
-        if (name != null) {
-            value = prop.getProperty(name);
-        }
-        return value;
+    protected final static Properties prop = new Properties();
+
+    public static String getProperty(String key) {
+        return prop.getProperty(key);
     }
+
+    @SuppressWarnings("TryFinallyCanBeTryWithResources")
+    public static void readPropertiesFileWithAccountsTestData() throws IOException {
+        InputStream inputStream = SelenideBaseTest.class.getClassLoader().getResourceAsStream("testdata.properties");
+        try {
+            Reader reader = new InputStreamReader(inputStream, "UTF-8");
+            try {
+                prop.load(reader);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } finally {
+            inputStream.close();
+        }
+    }
+
 }
