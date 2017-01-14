@@ -2,7 +2,7 @@ package com.base.locators;
 
 public class HomePageLocators {
 
-    protected static final String LOGIN_FIELD = ".control-group.email>input";
-    protected static final String PASSWORD_FIELD = ".control-group.pass>input";
+    protected static final String SEARCH_FIELD_LOCATOR = "#twotabsearchtextbox";
+    protected static final String SEARCH_RESUL_DROPDOWN = "#suggestions-template #suggestions";
 
 }
