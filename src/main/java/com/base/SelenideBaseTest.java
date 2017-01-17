@@ -1,25 +1,26 @@
 package com.base;
 
-import org.testng.annotations.*;
+import com.base.listeners.ScreenshotOnFailure;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
-import static com.base.utils.PropertiesReader.getProperty;
 import static com.base.utils.BrowserSelection.selectBrowser;
+import static com.base.utils.PropertiesReader.getProperty;
 import static com.base.utils.PropertiesReader.readPropertiesFileWithAccountsTestData;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
-import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
+@Listeners(ScreenshotOnFailure.class)
 public class SelenideBaseTest {
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void before() throws Exception {
         readPropertiesFileWithAccountsTestData();
         selectBrowser(getProperty("BROWSER"));
-
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void after() {
-        closeWebDriver();
         clearBrowserCache();
     }
 

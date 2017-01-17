@@ -8,12 +8,10 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.base.utils.TestGroups.sanityTest;
-import static com.codeborne.selenide.Selenide.sleep;
 
 @Features("Search functionality")
 @Stories("Search")
 public class SearchTest extends SelenideBaseTest {
-
 
     @Title("Check ...")
     @Test(groups = {sanityTest})
@@ -21,7 +19,6 @@ public class SearchTest extends SelenideBaseTest {
         new HomePage()
                 .openHomePage()
                 .enterTextToSearchField("Funky town");
-        sleep(10000);
     }
 
 }
