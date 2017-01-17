@@ -16,7 +16,7 @@ public class SelenideBaseTest {
     @BeforeClass(alwaysRun = true)
     public void before() throws Exception {
         readPropertiesFileWithAccountsTestData();
-        selectBrowser(getProperty("BROWSER"));
+        selectBrowser(getProperty("CHROME"));
     }
 
     @AfterClass(alwaysRun = true)
