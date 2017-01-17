@@ -1,20 +1,25 @@
 package com.base.utils;
 
 import com.codeborne.selenide.Configuration;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 
 public class BrowserSelection {
 
     public static void selectBrowser(String browser) throws Exception {
         switch (browser) {
             case "Firefox":
-                //TODO
+                Configuration.browser = "Firefox";
+                FirefoxDriverManager.getInstance().setup();
                 break;
             case "Chrome":
                 Configuration.browser = "Chrome";
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/win/chromedriver.exe");
+                ChromeDriverManager.getInstance().setup();
                 break;
             case "IE":
-                //TODO
+                Configuration.browser = "IE";
+                InternetExplorerDriverManager.getInstance().setup();
                 break;
             case "Safari":
                 //TODO
