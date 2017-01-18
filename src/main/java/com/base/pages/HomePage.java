@@ -18,8 +18,13 @@ public class HomePage extends HomePageLocators {
 
     public HomePage enterTextToSearchField(String text) {
         $(SEARCH_FIELD_LOCATOR).sendKeys(text);
-        $(SEARCH_RESUL_DROPDOWN).shouldBe(Condition.visible);
+        $(SEARCH_RESULT_DROPDOWN).shouldBe(Condition.visible);
         return this;
     }
 
+
+    public HomePage selectDepartments() {
+        $(SEARCH_DEPARTMENTS_DROPDOWN).shouldBe(Condition.visible);
+        return this;
+    }
 }

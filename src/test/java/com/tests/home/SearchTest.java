@@ -16,9 +16,13 @@ public class SearchTest extends SelenideBaseTest {
     @Title("Check ...")
     @Test(groups = {sanityTest})
     void checkTextOnLoginPage() {
-        new HomePage()
-                .openHomePage()
-                .enterTextToSearchField("Funky town");
+
+        new HomePage().openHomePage()
+                .enterTextToSearchField("Funky town")
+                .selectDepartments();
+
+        //sleep(10000);
+
     }
 
 }
