@@ -9,18 +9,18 @@ import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.base.utils.TestGroups.sanityTest;
 
-@Features("Search functionality")
-@Stories("Search")
-public class SearchTest extends SelenideBaseTest {
+@Features("Select department")
+@Stories("Select department")
+public class SelectDepartment extends SelenideBaseTest {
 
     @Title("Check ...")
     @Test(groups = {sanityTest})
-    void checkTextOnLoginPage() {
-
+    void clickOnDepartment() {
         new HomePage()
                 .openHomePage()
-                .enterTextToSearchField("Funky town")
-                .selectDepartments();
+                .mouseHoverDepartmentMenu()
+                .clickOnElectronicAndComputerOption()
+                .clickOnMonitorsSubMenu();
     }
 
 }
