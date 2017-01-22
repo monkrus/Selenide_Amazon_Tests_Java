@@ -7,7 +7,6 @@ import ru.yandex.qatools.allure.annotations.Step;
 import static com.base.utils.PropertiesReader.getProperty;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class HomePage extends HomePageLocators {
 
@@ -52,6 +51,18 @@ public class HomePage extends HomePageLocators {
     @Step
     public SignInPage clickOnAccountListMenu() {
         $("#nav-link-accountList .nav-line-2").click();
+        return new SignInPage();
+    }
+
+    @Step
+    public HomePage hoverMouseOverAccountListMenu() {
+        $("#nav-link-accountList .nav-line-2").hover();
+        return this;
+    }
+
+    @Step
+    public SignInPage clickOnSignOutOption() {
+        $("#nav-item-signout span").click();
         return new SignInPage();
     }
 }

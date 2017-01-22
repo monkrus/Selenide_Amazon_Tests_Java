@@ -1,5 +1,6 @@
 package com.base.pages;
 
+import com.codeborne.selenide.Condition;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -19,9 +20,16 @@ public class SignInPage {
     }
 
     @Step
-    public SignInPage clickSignInButton() {
+    public HomePage clickSignInButton() {
         $("#signInSubmit").click();
-        return this;
+        $("#nav-link-accountList .nav-line-1").shouldBe(Condition.visible);
+        return new HomePage();
+    }
+
+    @Step
+    public SignInPage checkThatUserIsOnLogInPage() {
+        $("#ap_password").shouldBe(Condition.visible);
+;        return this;
     }
 
 }
