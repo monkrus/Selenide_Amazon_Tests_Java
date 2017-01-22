@@ -16,7 +16,6 @@ public class SearchTest extends SelenideBaseTest {
     @Title("Check ...")
     @Test(groups = {sanityTest})
     void checkTextOnLoginPage() {
-
         new HomePage()
                 .openHomePage()
                 .enterTextToSearchField("Funky town")
