@@ -43,9 +43,15 @@ public class HomePage extends HomePageLocators {
         return this;
     }
 
+    @Step
     public HomePage clickOnMonitorsSubMenu() {
         $(".nav-template.nav-subcat.nav-tpl-itemList.nav-colcount-2:nth-child(11) .nav-column.nav-column-notfirst.nav-column-break .nav-link.nav-item:nth-child(2) span").click();
-        sleep(3000);
         return this;
+    }
+
+    @Step
+    public SignInPage clickOnAccountListMenu() {
+        $("#nav-link-accountList .nav-line-2").click();
+        return new SignInPage();
     }
 }
