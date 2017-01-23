@@ -1,5 +1,6 @@
 package com.tests.home;
 
+import com.base.SelenideBaseTest;
 import com.base.pages.HomePage;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -13,7 +14,7 @@ import static com.base.utils.TestGroups.sanityTest;
  */
 @Features("Select department")
 @Stories("Select department")
-public class SelectDepartment {
+public class SelectDepartment extends SelenideBaseTest {
     @Title("Check ...")
     @Test(groups = {sanityTest})
     void clickOnDepartment() {
