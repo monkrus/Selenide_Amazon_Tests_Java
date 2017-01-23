@@ -1,5 +1,6 @@
 package com.tests.home;
 
+import com.base.SelenideBaseTest;
 import com.base.pages.HomePage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ import static com.base.utils.PropertiesReader.getProperty;
  */
 @Features("LogOut")
 @Stories("LogOut")
-public class LogOut {
+public class LogOut extends SelenideBaseTest {
     @BeforeMethod
     void precondition() {
         new HomePage()
