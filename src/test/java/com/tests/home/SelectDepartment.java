@@ -1,6 +1,5 @@
 package com.tests.home;
 
-import com.base.SelenideBaseTest;
 import com.base.pages.HomePage;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -9,21 +8,19 @@ import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.base.utils.TestGroups.sanityTest;
 
-@Features("Search functionality")
-@Stories("Search")
-public class SearchTest extends SelenideBaseTest {
-
+/**
+ * Created by monk on 1/23/2017.
+ */
+@Features("Select department")
+@Stories("Select department")
+public class SelectDepartment {
     @Title("Check ...")
     @Test(groups = {sanityTest})
-    void checkTextOnLoginPage() {
-
+    void clickOnDepartment() {
         new HomePage()
                 .openHomePage()
-                .enterTextToSearchField("Funky town")
-                .selectDepartments();
-
-        //sleep(10000);
-
+                .mouseHoverDepartmentMenu()
+                .clickOnElectronicAndComputerOption()
+                .clickOnMonitorsSubMenu();
     }
-
 }

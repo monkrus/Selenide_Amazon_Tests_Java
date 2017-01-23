@@ -7,23 +7,25 @@ import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 
+import static com.base.utils.PropertiesReader.getProperty;
 import static com.base.utils.TestGroups.sanityTest;
 
-@Features("Search functionality")
-@Stories("Search")
-public class SearchTest extends SelenideBaseTest {
+/**
+ * Created by monk on 1/23/2017.
+ */
+@Features("Login")
+@Stories("Login")
+public class LoginTo  extends SelenideBaseTest{
 
     @Title("Check ...")
     @Test(groups = {sanityTest})
-    void checkTextOnLoginPage() {
-
+    void clickOnDepartment() {
         new HomePage()
                 .openHomePage()
-                .enterTextToSearchField("Funky town")
-                .selectDepartments();
-
-        //sleep(10000);
-
+                .clickOnAccountListMenu()
+                .enterEmail(getProperty("EMAIL"))
+                .enterPassword(getProperty("PASSWORD"))
+                .clickSignInButton();
     }
 
 }

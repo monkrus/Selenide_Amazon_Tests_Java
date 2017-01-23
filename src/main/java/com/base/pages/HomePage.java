@@ -1,3 +1,4 @@
+
 package com.base.pages;
 
 import com.base.locators.HomePageLocators;
@@ -27,4 +28,44 @@ public class HomePage extends HomePageLocators {
         $(SEARCH_DEPARTMENTS_DROPDOWN).shouldBe(Condition.visible);
         return this;
     }
+
+    @Step
+    public HomePage mouseHoverDepartmentMenu() {
+        $("#nav-link-shopall .nav-line-2").hover();
+        $("#nav-flyout-shopAll .nav-template.nav-flyout-content.nav-tpl-itemList").shouldBe(Condition.visible);
+        return this;
+    }
+
+    @Step
+    public HomePage clickOnElectronicAndComputerOption() {
+        $(".nav-template.nav-flyout-content.nav-tpl-itemList [aria-label='Electronics & Computers']").click();
+        return this;
+    }
+
+    @Step
+    public HomePage clickOnMonitorsSubMenu() {
+        $(".nav-template.nav-subcat.nav-tpl-itemList.nav-colcount-2:nth-child(11) .nav-column.nav-column-notfirst.nav-column-break .nav-link.nav-item:nth-child(2) span").click();
+        return this;
+    }
+
+    @Step
+    public SignInPage clickOnAccountListMenu() {
+        $("#nav-link-accountList .nav-line-2").click();
+        return new SignInPage();
+    }
+
+    @Step
+    public HomePage hoverMouseOverAccountListMenu() {
+        $("#nav-link-accountList .nav-line-2").hover();
+        return this;
+    }
+
+    @Step
+    public SignInPage clickOnSignOutOption() {
+        $("#nav-item-signout span").click();
+        return new SignInPage();
+
+
+    }
 }
+
