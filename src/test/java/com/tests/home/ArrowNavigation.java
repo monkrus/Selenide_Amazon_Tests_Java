@@ -8,7 +8,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 
 import static com.base.utils.TestGroups.sanityTest;
-
+//New Addon
 
 @Features("Switch Navigation")
 @Stories("Switch Navigation")
