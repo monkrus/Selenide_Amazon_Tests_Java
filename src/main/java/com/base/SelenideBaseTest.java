@@ -16,12 +16,13 @@ public class SelenideBaseTest {
     @BeforeClass(alwaysRun = true)
     public void before() throws Exception {
         readPropertiesFileWithAccountsTestData();
-        selectBrowser(getProperty("CHROME"));
+        selectBrowser(getProperty("FIREFOX"));
     }
 
     @AfterClass(alwaysRun = true)
     public void after() {
         clearBrowserCache();
     }
+
 
 }

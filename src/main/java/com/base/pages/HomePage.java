@@ -6,6 +6,7 @@ import com.codeborne.selenide.Condition;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.base.utils.PropertiesReader.getProperty;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -19,20 +20,20 @@ public class HomePage extends HomePageLocators {
 
     public HomePage enterTextToSearchField(String text) {
         $(SEARCH_FIELD_LOCATOR).sendKeys(text);
-        $(SEARCH_RESULT_DROPDOWN).shouldBe(Condition.visible);
+        $(SEARCH_RESULT_DROPDOWN).shouldBe(visible);
         return this;
     }
 
 
     public HomePage selectDepartments() {
-        $(SEARCH_DEPARTMENTS_DROPDOWN).shouldBe(Condition.visible);
+        $(SEARCH_DEPARTMENTS_DROPDOWN).shouldBe(visible);
         return this;
     }
 
     @Step
     public HomePage mouseHoverDepartmentMenu() {
         $("#nav-link-shopall .nav-line-2").hover();
-        $("#nav-flyout-shopAll .nav-template.nav-flyout-content.nav-tpl-itemList").shouldBe(Condition.visible);
+        $("#nav-flyout-shopAll .nav-template.nav-flyout-content.nav-tpl-itemList").shouldBe(visible);
         return this;
     }
 
@@ -65,6 +66,17 @@ public class HomePage extends HomePageLocators {
         $("#nav-item-signout span").click();
         return new SignInPage();
 
+
+    }
+@Step
+    public HomePage selectRightArrow() {
+    $(".a-carousel-goto-nextpage").waitUntil(Condition.visible, 10000).click();
+    return this;
+    }
+@Step
+    public HomePage selectLeftArrow() {
+    $(SEARCH_ARROW_NAVIGATION).waitUntil(Condition.visible, 10000).click();
+    return this;
 
     }
 }
